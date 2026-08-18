@@ -16,9 +16,14 @@ app.use(router)
 const PORT =  process.env.PORT || 3333
 
 app.listen(PORT, async () => {
-    await db.sync();
-    console.log(`Server rodando na porta ${PORT}`)
-})
+    try {
+        await db.sync({ alter: true }); // ajusta a estrutura sem apagar dados
+        console.log(`Server rodando na porta ${PORT}`);
+    } catch (error) {
+        console.error("Erro ao sincronizar com o banco:", error);
+    }
+});
+
 
 export default app
 
