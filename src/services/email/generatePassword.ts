@@ -1,0 +1,20 @@
+
+
+const array = ["a","b","d","e","f","g","h","i","j","c"]
+
+const valueAleatory = Math.floor(Math.random() * 10)
+let l1 = array[valueAleatory]
+const valueAleatory2 = Math.floor(Math.random() * 10)
+let l2 = array[valueAleatory2]
+const valueAleatory3 = Math.floor(Math.random() * 10)
+let l3 = array[valueAleatory3]
+const valueAleatory4 = Math.floor(Math.random() * 10)
+let l4 = array[valueAleatory4]
+
+const pn1 = String(Math.floor(Math.random() * 100))
+const pn2 = String(Math.floor(Math.random() * 1000))
+const pn3 = String(Math.floor(Math.random() * 100))
+
+
+export const passProvisional = (l1+pn1+l2+pn2+l3+pn3)
+
