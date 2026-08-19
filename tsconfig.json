@@ -10,12 +10,14 @@
     "forceConsistentCasingInFileNames": true,
     "strict": false,
     "skipLibCheck": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "rootDir": "src",
+    "outDir": "dist"
   },
   "include": [
     "src/**/*.ts",
     "api/**/*.ts",
-    "src/api/**/*.ts",
+    "src/api/**/*.ts"
   ],
   "exclude": [
     "node_modules",

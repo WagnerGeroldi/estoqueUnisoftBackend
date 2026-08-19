@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "ts-jest",
-    "dev": "ts-node-dev src/index.ts",
-    "start": "ts-node src/index.ts"
-  },
+  "dev": "ts-node-dev src/index.ts",
+  "build": "tsc",
+  "start": "node dist/server.js"
+},
+
   "keywords": [],
   "author": "",
   "license": "ISC",
