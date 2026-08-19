@@ -9,7 +9,7 @@ app.use(cors({
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "x-access-token"]
 }));
-
+app.options("*", cors());
 app.use(express.json());
 
 app.use(router);
