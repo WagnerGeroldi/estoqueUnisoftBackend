@@ -4,16 +4,16 @@ import cors from "cors";
 import "dotenv/config";
 
 const app = express();
+app.use(cors({
+  origin: ["*", "http://localhost:3000"],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "x-access-token"]
+}));
 
 app.use(express.json());
 
 app.use(router);
 
-app.use(cors({
-  origin: ["*"],
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  allowedHeaders: ["Content-Type", "x-access-token"]
-}));
 
 app.get("/", (req, res) => {
   res.send("API rodando 🚀");
