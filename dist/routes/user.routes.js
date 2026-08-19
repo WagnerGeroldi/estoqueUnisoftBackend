@@ -1,0 +1,20 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const userController_1 = __importDefault(require("../controllers/userController"));
+const userServices_1 = __importDefault(require("../controllers/services/userServices"));
+const HandleValidation_1 = __importDefault(require("../services/validation/servicesValidation/HandleValidation"));
+const Rules_1 = __importDefault(require("../services/validation/rules/Rules"));
+const routerUser = (0, express_1.Router)();
+routerUser.get("/", userController_1.default.findAll);
+routerUser.get("/:id", userServices_1.default.verifyJWT, userServices_1.default.verifyIdExists, userController_1.default.findById);
+routerUser.post("/", Rules_1.default.bodyRulesRegister, HandleValidation_1.default.verifyValitadion, userServices_1.default.verifyEmailExsits, userController_1.default.create);
+routerUser.put("/:id", userServices_1.default.verifyJWT, userServices_1.default.verifyIdExists, userController_1.default.update);
+routerUser.post("/recoverPassword", userServices_1.default.recoverPassword);
+routerUser.post("/updatePassword", userServices_1.default.verifyUpdatePassword);
+routerUser.post("/validate", Rules_1.default.bodyRulesLogin, HandleValidation_1.default.verifyValitadion, userServices_1.default.handleLogin);
+routerUser.delete("/:id", userServices_1.default.verifyJWT, userServices_1.default.verifyIdExists, userController_1.default.delete);
+exports.default = routerUser;
