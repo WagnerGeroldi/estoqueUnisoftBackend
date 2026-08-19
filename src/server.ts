@@ -20,7 +20,7 @@ app.listen(PORT, async () => {
         await db.sync({ alter: true }); // ajusta a estrutura sem apagar dados
         console.log(`Server rodando na porta ${PORT}`);
     } catch (error) {
-        console.error("Erro ao sincronizar com o banco:", error);
+        console.error("Erro ao sincronizar com o banco de dados:", error);
     }
 });
 
