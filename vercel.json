@@ -11,5 +11,12 @@
       "src": "/(.*)",
       "dest": "src/api/index.ts"
     }
-  ]
+  ],
+  "functions": {
+    "src/api/index.ts": {
+      "includeFiles": [
+        "node_modules/mysql2/**"
+      ]
+    }
+  }
 }
