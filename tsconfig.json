@@ -16,7 +16,7 @@
   },
   "include": [
     "src/**/*.ts",
-    "api/**/*.ts",
+    "src/api/**/*.ts",
     "src/api/**/*.ts"
   ],
   "exclude": [
