@@ -1,0 +1,24 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const user_routes_1 = __importDefault(require("./user.routes"));
+const products_routes_1 = __importDefault(require("./products.routes"));
+const order_routes_1 = __importDefault(require("./order.routes"));
+const category_routes_1 = __importDefault(require("./category.routes"));
+const outOfStock_routes_1 = __importDefault(require("./outOfStock.routes"));
+const orderIncrement_routes_1 = __importDefault(require("./orderIncrement.routes"));
+const updateStock_routes_1 = __importDefault(require("./updateStock.routes"));
+const estoque_routes_1 = __importDefault(require("./estoque.routes"));
+const router = (0, express_1.Router)();
+router.use("/users", user_routes_1.default);
+router.use("/products", products_routes_1.default);
+router.use("/order", order_routes_1.default);
+router.use("/estoque", estoque_routes_1.default);
+router.use("/category", category_routes_1.default);
+router.use("/outOfStock", outOfStock_routes_1.default);
+router.use("/orderIncrement", orderIncrement_routes_1.default);
+router.use("/updateStock", updateStock_routes_1.default);
+exports.default = router;
