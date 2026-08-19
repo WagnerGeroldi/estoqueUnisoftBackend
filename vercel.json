@@ -1,5 +1,12 @@
 {
   "version": 2,
+  "framework": null,
+  "builders": [
+    {
+      "src": "api/index.ts",
+      "use": "@vercel/node"
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",
