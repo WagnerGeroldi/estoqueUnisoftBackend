@@ -6,7 +6,7 @@ import "dotenv/config";
 const app = express();
 
 const allowedOrigins = [
-  "https://estoque-unisoft-front.vercel.app/",
+  "https://estoque-unisoft-front.vercel.app",
 ];
 
 app.use(cors({
