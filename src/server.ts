@@ -5,15 +5,21 @@ import "dotenv/config";
 
 const app = express();
 
-app.use(cors({
-  origin: [
-    "*"
-  ],
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  allowedHeaders: ["Content-Type", "x-access-token"]
-}));
+const allowedOrigins = [
+  "https://estoque-unisoft-front.vercel.app/",
+];
 
-app.options("*", cors());
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Origem não permitida pelo CORS"));
+    }
+  },
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "x-access-token"],
+}));
 
 app.use(express.json());
 
