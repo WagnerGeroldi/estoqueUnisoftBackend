@@ -7,9 +7,7 @@ const app = express();
 
 app.use(cors({
   origin: [
-    "http://localhost:3000",
-    "https://estoque-unisoft-frontend.vercel.app",
-    "http://192.168.3.46:3000/"
+    "*"
   ],
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "x-access-token"]
