@@ -7,6 +7,7 @@ const app = express();
 
 const allowedOrigins = [
   "https://estoque-unisoft-front.vercel.app",
+  "http://localhost:3000"
 ];
 
 app.use(cors({
