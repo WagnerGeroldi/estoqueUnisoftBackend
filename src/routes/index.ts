@@ -9,6 +9,7 @@ import routerOutOfStock from "./outOfStock.routes";
 import routerOrderIncrement from "./orderIncrement.routes";
 import routerUpdateStock from "./updateStock.routes";
 import routerEstoque from "./estoque.routes";
+import routerDadosAtuais from "./certificado.routes";
 
 const router = Router();
 
@@ -20,5 +21,6 @@ router.use("/category", routerCategory);
 router.use("/outOfStock", routerOutOfStock);
 router.use("/orderIncrement", routerOrderIncrement);
 router.use("/updateStock", routerUpdateStock);
+router.use("/certificados", routerDadosAtuais);
 
 export default router;
