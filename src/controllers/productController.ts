@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { v4 as uuidV4 } from "uuid";
 import { ProductsModel } from "../database/model/ProductsModel";
+import { Sequelize } from "sequelize";
 
 class productController {
   async create(req: Request, res: Response) {
@@ -37,6 +38,30 @@ class productController {
         .json({ message: "Não existem produtos cadastrados" });
     } else {
       return res.status(200).json(allProducts);
+    }
+  }
+
+  async findFornecedores(req: Request, res: Response) {
+    const { user_ID } = req.params;
+
+    const fornecedores = await ProductsModel.findAll({
+      where: {
+        user_ID: user_ID,
+      },
+      attributes: [
+      [Sequelize.fn("DISTINCT", Sequelize.col("fornecedor")), "fornecedor"],
+    ],
+      order: [["fornecedor", "ASC"]],
+    });
+
+    if (!fornecedores) {
+      return res
+        .status(400)
+        .json({ message: "Não existem produtos cadastrados" });
+    } else {
+      console.log(fornecedores);
+      
+      return res.status(200).json(fornecedores);
     }
   }
 
@@ -80,6 +105,28 @@ class productController {
       return res.status(200).json(allProductsInTheCategory);
     }
   }
+
+   async findProductsByFornecedor(req: Request, res: Response) {
+    const { user_ID } = req.params;
+    const { fornecedor } = req.query;
+
+    const allProductsInTheCategory = await ProductsModel.findAll({
+      where: {
+        fornecedor: fornecedor,
+        user_ID: user_ID,
+      },
+      order: [["name", "ASC"]],
+    });
+
+    if (!allProductsInTheCategory) {
+      return res
+        .status(400)
+        .json({ message: "Não existem produtos desta catetoria" });
+    } else {
+      return res.status(200).json(allProductsInTheCategory);
+    }
+  }
+
 
   async findProductsByEstoque(req: Request, res: Response) {
     const { estoque } = req.params;
