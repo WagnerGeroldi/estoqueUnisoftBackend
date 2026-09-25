@@ -7,6 +7,7 @@ const app = express();
 
 const allowedOrigins = [
   "https://estoque-unisoft-front.vercel.app",
+  "https://estoque.unisoftinformatica.com.br",
   "http://localhost:3000"
 ];
 
